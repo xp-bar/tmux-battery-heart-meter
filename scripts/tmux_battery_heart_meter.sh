@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-battery_heart_bar() {
+battery_heart_meter() {
     redheart="\e[31m\u2665"
 
     blackheart="\e[30m\u2665"
@@ -22,4 +22,4 @@ battery_heart_bar() {
     echo -e $left $right
 }
 
-battery_heart_bar
+battery_heart_meter
