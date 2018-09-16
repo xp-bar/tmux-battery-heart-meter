@@ -4,25 +4,16 @@ CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 source "$CURRENT_DIR/scripts/helpers.sh"
 
-battery_interpolation=(
-	"\#{battery_heart_meter}"
-)
-battery_commands=(
-	"#($CURRENT_DIR/scripts/battery_heart_meter.sh)"
-)
-
-set_tmux_option() {
-	local option="$1"
-	local value="$2"
-	tmux set-option -gq "$option" "$value"
-}
+meter_interpolation="\#{battery_heart_meter}"
+heart_meter="#($CURRENT_DIR/scripts/battery_heart_meter.sh)"
 
 do_interpolation() {
-	local all_interpolated="$1"
-	for ((i=0; i<${#battery_commands[@]}; i++)); do
-		all_interpolated=${all_interpolated//${battery_interpolation[$i]}/${battery_commands[$i]}}
-	done
-	echo "$all_interpolated"
+    local input=$1
+    local result=""
+
+    result=${input/$meter_interpolation/$heart_meter}
+
+    echo $result
 }
 
 update_tmux_option() {
