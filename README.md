@@ -9,6 +9,9 @@ in `.tmux.conf`:
 
 Hit `prefix + I` to fetch the plugin and source it.
 
+Next, add `#{battery_heart_meter}` to your `status-left` or `status-right` in `.tmux.conf`.
+Enjoy!
+
 ----------------------------------------------
 
 Based in large off [tmux-plugins/tmux-battery](https://github.com/tmux-plugins/tmux-battery).
