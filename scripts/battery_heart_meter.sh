@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 battery_heart_meter() {
-    redheart="\e[31m\u2665"
+    redheart="#[fg='color1']\u2665"
 
-    blackheart="\e[30m\u2665"
+    blackheart="#[fg='colour8']\u2665"
 
     percent="$(pmset -g batt | grep -o '[0-9]\{1,3\}%')"
     percent=$(echo "$percent" | grep -o '[0-9]\{1,3\}')
