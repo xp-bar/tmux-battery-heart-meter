@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
-battery_heart_meter() {
-    redheart="#[fg='color1']\u2665"
+CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-    blackheart="#[fg='colour8']\u2665"
+source "$CURRENT_DIR/helpers.sh"
+
+battery_heart_meter() {
+    local red=$(get_tmux_option @heart_color "%s")
+    local black=$(get_tmux_option @black_heart_color "%s")
+    
+    local heart="$(echo -e '\u2665')"
 
     percent="$(pmset -g batt | grep -o '[0-9]\{1,3\}%')"
     percent=$(echo "$percent" | grep -o '[0-9]\{1,3\}')
@@ -12,14 +17,14 @@ battery_heart_meter() {
 
     left=""
     for i in `seq 1 $remaining`; do
-        left="$left $redheart";
+        left="$left $heart";
     done
 
     right=""
     for i in `seq 1 $used`; do
-        right="$right $blackheart";
+        right="$right $heart";
     done
-    echo -e $left $right
+    printf "$black" "$left" "$red" "$right"
 }
 
 battery_heart_meter
