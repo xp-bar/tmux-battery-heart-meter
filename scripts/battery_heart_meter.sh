@@ -12,7 +12,8 @@ battery_heart_meter() {
     percent="$(pmset -g batt | grep -o '[0-9]\{1,3\}%')"
     percent=$(echo "$percent" | grep -o '[0-9]\{1,3\}')
 
-    remaining=$[$[$[$percent / 100] * 5] % 1]
+    remaining=$(bc <<< "scale=1 ; $percent/100*5")
+    remaining=$(round "$(bc <<< "scale=2; $remaining")")
     used=$[5 - $remaining]
 
     left=""

@@ -30,3 +30,7 @@ command_exists() {
     local command="$1"
     type "$command" >/dev/null 2>&1
 }
+
+round() {
+    printf %.0f $(echo "$1/1.18" | bc -l)
+};
