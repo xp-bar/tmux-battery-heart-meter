@@ -11,4 +11,4 @@ Hit `prefix + I` to fetch the plugin and source it.
 
 ----------------------------------------------
 
-Based in large off https://github.com/tmux-plugins/tmux-battery.
+Based in large off [tmux-plugins/tmux-battery](https://github.com/tmux-plugins/tmux-battery).
