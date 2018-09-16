@@ -1,4 +1,4 @@
-# tmux-battery-heart-meter
+# tmux Battery Heart Meter
 A heart meter for your status bar! Shows your remaining battery % as hearts.
 
 ### Installation with [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
