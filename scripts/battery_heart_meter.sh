@@ -24,7 +24,7 @@ battery_heart_meter() {
     for i in `seq 1 $used`; do
         right="$right $heart";
     done
-    printf "$red" "$right"
+    echo "$red" "$right"
 }
 
 battery_heart_meter
