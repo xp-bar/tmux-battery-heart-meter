@@ -14,8 +14,6 @@ battery_heart_meter() {
 
     remaining=$(round "$(bc <<< "scale=2 ; $percent/100*5")")
     used=$[5 - $remaining]
-    echo $remaining;
-    echo $used;
 
     left=""
     if [[ $remaining > 0 ]]; then
@@ -25,9 +23,11 @@ battery_heart_meter() {
     fi 
 
     right=""
-    for i in `seq 1 $used`; do
-        right="$right $heart";
-    done
+    if [[ $used > 0 ]]; then
+        for i in `seq 1 $used`; do
+            right="$right $heart";
+        done
+    fi
     printf "$red$left$black$right"
 }
 
