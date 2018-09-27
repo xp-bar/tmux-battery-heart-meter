@@ -4,6 +4,7 @@ CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source "$CURRENT_DIR/helpers.sh"
 
 battery_heart_meter() {
+    unset red, black, heart_icon, heart
     local red=$(get_tmux_option @heart_color "#[fg=red]")
     local black=$(get_tmux_option @black_heart_color "#[fg=black]")
     
