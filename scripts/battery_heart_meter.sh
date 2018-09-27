@@ -10,6 +10,7 @@ battery_heart_meter() {
     local heart_icon="$(echo -e '\u2665')"
     unset heart
     local heart="$(get_tmux_option "@heart_icon" $heart_icon)"
+    local bad_heart="$(get_tmux_option "@bad_heart_icon" $heart_icon)"
 
     percent="$(pmset -g batt | grep -o '[0-9]\{1,3\}%')"
     percent=$(echo "$percent" | grep -o '[0-9]\{1,3\}')
@@ -27,7 +28,7 @@ battery_heart_meter() {
     right=""
     if [[ $used > 0 ]]; then
         for i in `seq 1 $used`; do
-            right="$right $heart";
+            right="$right $bad_heart";
         done
     fi
     printf "$red$left$black$right"
