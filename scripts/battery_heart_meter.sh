@@ -12,7 +12,7 @@ battery_heart_meter() {
     local heart="$(get_tmux_option "@heart_icon" $heart_icon)"
     local bad_heart="$(get_tmux_option "@bad_heart_icon" $heart_icon)"
 
-    if [[ is_osx ]]; then
+    if is_osx; then
         percent="$(pmset -g batt | grep -o '[0-9]\{1,3\}%')"
     else
         percent="$(cat /sys/class/power_supply/battery/capacity)"

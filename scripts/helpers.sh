@@ -33,4 +33,4 @@ command_exists() {
 
 round() {
     printf %.0f $(echo "$1/1" | bc -l)
-};
+}
